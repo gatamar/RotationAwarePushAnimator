@@ -28,7 +28,18 @@
 
 - (void)animateAfterRotationToFrame:(CGRect)frame1
 {
-    _viewForMoving.frame = frame1; //TODO: do it with animator
+    [UIView animateWithDuration:4 animations:^{
+            _viewForMoving.frame = frame1;
+    }];
+//    [_animator addAnimations:^{
+//        _viewForMoving.frame = frame1; //TODO: do it with animator
+//    }];
+//    [_animator addCompletion:^(UIViewAnimatingPosition finalPosition) {
+//        [_animator stopAnimation:NO];
+//        [_animator finishAnimationAtPosition:finalPosition];
+//    }];
+//
+//    [_animator startAnimation];
 }
 
 - (id<UIViewImplicitlyAnimating>)interruptibleAnimatorForTransition:(id<UIViewControllerContextTransitioning>)transitionContext

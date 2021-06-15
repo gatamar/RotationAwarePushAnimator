@@ -30,10 +30,11 @@
     
     //TODO: animateAlongsideTransitionInView
     
+    
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-        [_animator animateAfterRotationToFrame:[self viewFrame1]];
+
     } completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-        
+        [_animator animateAfterRotationToFrame:[self viewFrame1]];
     }];
 }
 
