@@ -25,8 +25,6 @@
     self.view.backgroundColor = UIColor.yellowColor;
     [self addPushButton];
     [self addImageView];
-    _animator = [[RotationAwarePushAnimator alloc] init];
-    _animator.delegate = self;
 }
 
 - (void)addPushButton
@@ -53,6 +51,9 @@
 
 - (void)onPushButtonPressed
 {
+    _animator = [[RotationAwarePushAnimator alloc] init]; // recreate animator for each push transition
+    _animator.delegate = self;
+    
     SecondViewController* vc2 = [[SecondViewController alloc] init];
     vc2.animator = _animator;
     [self.navigationController pushViewController:vc2 animated:YES];
