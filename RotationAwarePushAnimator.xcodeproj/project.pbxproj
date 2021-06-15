@@ -67,21 +67,21 @@
 		4F96A6F02678E70B0060224B /* RotationAwarePushAnimator */ = {
 			isa = PBXGroup;
 			children = (
-				4F96A70C2678E8030060224B /* SecondViewController.h */,
 				4F96A6F12678E70B0060224B /* AppDelegate.h */,
 				4F96A6F22678E70B0060224B /* AppDelegate.m */,
-				4F96A6F42678E70B0060224B /* SceneDelegate.h */,
-				4F96A6F52678E70B0060224B /* SceneDelegate.m */,
+				4F96A6FD2678E70E0060224B /* Assets.xcassets */,
 				4F96A6F72678E70B0060224B /* FirstViewController.h */,
 				4F96A6F82678E70B0060224B /* FirstViewController.mm */,
-				4F96A6FA2678E70B0060224B /* Main.storyboard */,
-				4F96A6FD2678E70E0060224B /* Assets.xcassets */,
-				4F96A6FF2678E70E0060224B /* LaunchScreen.storyboard */,
 				4F96A7022678E70E0060224B /* Info.plist */,
+				4F96A6FF2678E70E0060224B /* LaunchScreen.storyboard */,
 				4F96A7032678E70E0060224B /* main.m */,
-				4F96A70A2678E7ED0060224B /* SecondViewController.mm */,
-				4F96A70D2678ED290060224B /* RotationAwarePushAnimator.mm */,
+				4F96A6FA2678E70B0060224B /* Main.storyboard */,
 				4F96A70E2678ED290060224B /* RotationAwarePushAnimator.h */,
+				4F96A70D2678ED290060224B /* RotationAwarePushAnimator.mm */,
+				4F96A6F42678E70B0060224B /* SceneDelegate.h */,
+				4F96A6F52678E70B0060224B /* SceneDelegate.m */,
+				4F96A70C2678E8030060224B /* SecondViewController.h */,
+				4F96A70A2678E7ED0060224B /* SecondViewController.mm */,
 			);
 			path = RotationAwarePushAnimator;
 			sourceTree = "<group>";

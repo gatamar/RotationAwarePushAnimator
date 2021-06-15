@@ -7,7 +7,7 @@
 
 #import "SecondViewController.h"
 
-@interface SecondViewController ()
+@interface SecondViewController () <RotationAwarePushAnimatorDelegate>
 
 @end
 
@@ -20,6 +20,28 @@
 
 - (void)viewDidAppear:(BOOL)animated {
 
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    assert(self.animator);
+    [self.animator handleRotation];
+    
+    //TODO: animateAlongsideTransitionInView
+    
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        [_animator animateAfterRotationToFrame:[self viewFrame1]];
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        
+    }];
+}
+
+- (CGRect)viewFrame1
+{
+    double ww = self.view.frame.size.width, hh = self.view.frame.size.height;
+    double side = fmin(ww, hh);
+    return CGRectMake((ww-side)/2, (hh-side)/2, side, side);
 }
 
 @end

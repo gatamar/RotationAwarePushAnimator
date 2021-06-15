@@ -13,6 +13,7 @@
 {
     UIButton* _pushButton;
     UIImageView* _imageView;
+    RotationAwarePushAnimator* _animator;
 }
 @end
 
@@ -24,6 +25,8 @@
     self.view.backgroundColor = UIColor.yellowColor;
     [self addPushButton];
     [self addImageView];
+    _animator = [[RotationAwarePushAnimator alloc] init];
+    _animator.delegate = self;
 }
 
 - (void)addPushButton
@@ -51,6 +54,7 @@
 - (void)onPushButtonPressed
 {
     SecondViewController* vc2 = [[SecondViewController alloc] init];
+    vc2.animator = _animator;
     [self.navigationController pushViewController:vc2 animated:YES];
 }
 
@@ -59,9 +63,7 @@
 {
     if (fromVC == self)
     {
-        RotationAwarePushAnimator* obj = [[RotationAwarePushAnimator alloc] init];
-        obj.delegate = self;
-        return obj;
+        return _animator;
     }
     return nil;
 }

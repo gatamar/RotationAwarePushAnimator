@@ -6,9 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RotationAwarePushAnimator.h"
 
 @interface SecondViewController : UIViewController
 
+@property (weak) RotationAwarePushAnimator* animator;
 
 @end
 

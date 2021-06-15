@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol RotationAwarePushAnimatorDelegate <NSObject>
+@required
 
 - (UIView*)viewForMoving;
 - (CGRect)viewFrame0;
@@ -18,5 +19,8 @@
 @interface RotationAwarePushAnimator: NSObject <UIViewControllerAnimatedTransitioning>
 
 @property (weak) id<RotationAwarePushAnimatorDelegate> delegate;
+
+- (void)handleRotation;
+- (void)animateAfterRotationToFrame:(CGRect)frame1;
 
 @end

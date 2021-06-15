@@ -12,11 +12,24 @@
 {
     id<UIViewImplicitlyAnimating> _animator;
     id<UIViewControllerContextTransitioning> _context;
+    UIView* _viewForMoving;
 }
 
 @end
 
 @implementation RotationAwarePushAnimator
+
+- (void)handleRotation
+{
+    //[_animator pauseAnimation];
+    [_animator stopAnimation:NO];
+    [_animator finishAnimationAtPosition:UIViewAnimatingPositionCurrent];
+}
+
+- (void)animateAfterRotationToFrame:(CGRect)frame1
+{
+    _viewForMoving.frame = frame1; //TODO: do it with animator
+}
 
 - (id<UIViewImplicitlyAnimating>)interruptibleAnimatorForTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
@@ -30,12 +43,12 @@
     [containerView addSubview:toView];
     //toView.alpha = 0;
     
-    UIView* viewForMoving = [_delegate viewForMoving];
-    [toView addSubview:viewForMoving];
-    viewForMoving.frame = [_delegate viewFrame0];
+    _viewForMoving = [_delegate viewForMoving];
+    [toView addSubview:_viewForMoving];
+    _viewForMoving.frame = [_delegate viewFrame0];
     
     _animator = [[UIViewPropertyAnimator alloc] initWithDuration:5 curve:UIViewAnimationCurveEaseOut animations:^{
-        viewForMoving.frame = [_delegate viewFrame1];
+        _viewForMoving.frame = [_delegate viewFrame1];
     }];
     
     [_animator addCompletion:^(UIViewAnimatingPosition finalPosition) {
